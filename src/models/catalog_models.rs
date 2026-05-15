@@ -11,6 +11,18 @@ pub struct Catalog {
     pub modifiers: Vec<CatalogItemModifiers>
 }
 
+impl Default for Catalog {
+    fn default() -> Self {
+        Catalog {
+            items: vec![],
+            categories: vec![],
+            images: vec![],
+            options: vec![],
+            modifiers: vec![]
+        }
+    }
+}
+
 #[derive(Serialize, Deserialize)]
 pub struct CatalogItem {
     pub item_name: String,
