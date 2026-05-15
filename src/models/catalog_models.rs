@@ -1,8 +1,8 @@
 use std::vec::Vec;
 
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct Catalog {
     pub items: Vec<CatalogItem>,
     pub categories: Vec<CatalogCategory>,
@@ -11,7 +11,7 @@ pub struct Catalog {
     pub modifiers: Vec<CatalogItemModifiers>
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct CatalogItem {
     pub item_name: String,
     pub category_ids: Vec<String>,
@@ -20,25 +20,25 @@ pub struct CatalogItem {
     pub item_option_ids: Vec<String>,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct CatalogCategory {
     pub category_id: String,
     pub category_name: String,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct CatalogImage {
     pub image_id: String,
     pub image_url: String,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct CatalogItemOptions {
     pub option_id: String,
     
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct CatalogItemModifiers {
     pub modifier_id: String,
 }
