@@ -27,6 +27,7 @@ impl Default for Catalog {
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
 pub struct CatalogItem {
     pub item_name: String,
+    pub primary_category_id: Option<String>,
     pub category_ids: Vec<String>,
     pub image_ids: Vec<String>,
     pub html_description: String,
