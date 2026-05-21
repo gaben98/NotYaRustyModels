@@ -29,6 +29,7 @@ pub struct CatalogItem {
     pub item_name: String,
     pub primary_category_id: Option<String>,
     pub category_ids: Vec<String>,
+    pub price: i32,
     pub image_ids: Vec<String>,
     pub html_description: String,
     pub item_option_ids: Vec<String>,
