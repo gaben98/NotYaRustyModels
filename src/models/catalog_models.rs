@@ -36,7 +36,7 @@ pub struct CatalogItem {
     pub item_modifier_ids: Vec<String>
 }
 
-#[derive(Serialize, Deserialize, PartialEq, Hash)]
+#[derive(Serialize, Deserialize, PartialEq, Hash, Clone)]
 pub struct CatalogCategory {
     pub category_id: String,
     pub category_name: String,
