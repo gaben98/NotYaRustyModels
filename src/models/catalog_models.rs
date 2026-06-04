@@ -9,7 +9,8 @@ pub struct Catalog {
     pub categories: Vec<CatalogCategory>,
     pub images: Vec<CatalogImage>,
     pub options: Vec<CatalogItemOptionList>,
-    pub modifiers: Vec<CatalogItemModifier>
+    pub modifiers: Vec<CatalogItemModifier>,
+    pub modifier_values: Vec<CatalogItemModifierValue>
 }
 
 impl Default for Catalog {
@@ -19,7 +20,8 @@ impl Default for Catalog {
             categories: vec![],
             images: vec![],
             options: vec![],
-            modifiers: vec![]
+            modifiers: vec![],
+            modifier_values: vec![]
         }
     }
 }
