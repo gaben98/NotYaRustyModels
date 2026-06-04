@@ -8,8 +8,8 @@ pub struct Catalog {
     pub items: Vec<CatalogItem>,
     pub categories: Vec<CatalogCategory>,
     pub images: Vec<CatalogImage>,
-    pub options: Vec<CatalogItemOptions>,
-    pub modifiers: Vec<CatalogItemModifiers>
+    pub options: Vec<CatalogItemOptionList>,
+    pub modifiers: Vec<CatalogItemModifierList>
 }
 
 impl Default for Catalog {
@@ -32,8 +32,8 @@ pub struct CatalogItem {
     pub price: i32,
     pub image_ids: Vec<String>,
     pub html_description: String,
-    pub item_option_ids: Vec<String>,
-    pub item_modifier_ids: Vec<String>
+    pub item_option_list_ids: Vec<String>,
+    pub item_modifier_list_ids: Vec<String>
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Hash, Clone)]
@@ -45,16 +45,45 @@ pub struct CatalogCategory {
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
 pub struct CatalogImage {
     pub image_id: String,
-    pub image_url: String,
+    pub image_url: String
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
-pub struct CatalogItemOptions {
-    pub option_id: String,
-    
+pub struct CatalogItemOptionList {
+    pub option_list_id: String,
+    pub option_name: String,
+    pub option_value_ids: Vec<String>
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
-pub struct CatalogItemModifiers {
-    pub modifier_id: String,
+pub struct CatalogItemOptionValue {
+    pub option_value_id: String,
+    pub option_value_name: String
+}
+
+pub enum CatalogItemModifier {
+    List(CatalogItemModifierList),
+    Text(CatalogItemTextModifier)
+}
+
+#[derive(Serialize, Deserialize, PartialEq, Hash)]
+pub struct CatalogItemTextModifier {
+    pub text_modifier_id: String,
+    pub max_length: i32,
+    pub required: bool
+}
+
+#[derive(Serialize, Deserialize, PartialEq, Hash)]
+pub struct CatalogItemModifierList {
+    pub modifier_list_id: String,
+    pub modifier_value_ids: Vec<String>,
+    pub min_selected_modifiers: i32,
+    pub max_selected_modifiers: i32
+}
+
+#[derive(Serialize, Deserialize, PartialEq, Hash)]
+pub struct CatalogItemModifierValue {
+    pub modifier_value_id: String,
+    pub modifier_value_name: String,
+    pub price: i32
 }
