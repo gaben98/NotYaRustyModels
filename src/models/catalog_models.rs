@@ -78,7 +78,7 @@ pub struct CatalogItemModifierList {
     pub modifier_list_id: String,
     pub modifier_value_ids: Vec<String>,
     pub min_selected_modifiers: i64,
-    pub max_selected_modifiers: i64
+    pub max_selected_modifiers: Option<i64>
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
