@@ -69,7 +69,7 @@ pub enum CatalogItemModifier {
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
 pub struct CatalogItemTextModifier {
     pub text_modifier_id: String,
-    pub max_length: i32,
+    pub max_length: Option<i32>,
     pub required: bool
 }
 
