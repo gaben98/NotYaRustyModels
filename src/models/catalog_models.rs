@@ -9,7 +9,7 @@ pub struct Catalog {
     pub categories: Vec<CatalogCategory>,
     pub images: Vec<CatalogImage>,
     pub options: Vec<CatalogItemOptionList>,
-    pub modifiers: Vec<CatalogItemModifierList>
+    pub modifiers: Vec<CatalogItemModifier>
 }
 
 impl Default for Catalog {
@@ -61,6 +61,7 @@ pub struct CatalogItemOptionValue {
     pub option_value_name: String
 }
 
+#[derive(Serialize, Deserialize, PartialEq, Hash)]
 pub enum CatalogItemModifier {
     List(CatalogItemModifierList),
     Text(CatalogItemTextModifier)
