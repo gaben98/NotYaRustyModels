@@ -31,7 +31,6 @@ impl Default for Catalog {
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
 pub struct CatalogItem {
     pub item_name: String,
-    pub primary_category_id: Option<String>,
     pub category_ids: Vec<String>,
     pub price: i32,
     pub image_ids: Vec<String>,
@@ -44,6 +43,7 @@ pub struct CatalogItem {
 pub struct CatalogCategory {
     pub category_id: String,
     pub category_name: String,
+    pub parent_category_id: Option<String>
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
