@@ -71,6 +71,15 @@ pub enum CatalogItemModifier {
     Text(CatalogItemTextModifier)
 }
 
+impl CatalogItemModifier {
+    pub fn id(&self) -> String {
+        match self {
+            CatalogItemModifier::List(li) => li.modifier_list_id.clone(),
+            CatalogItemModifier::Text(txt) => txt.text_modifier_id.clone()
+        }
+    }
+}
+
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
 pub struct CatalogItemTextModifier {
     pub text_modifier_id: String,
