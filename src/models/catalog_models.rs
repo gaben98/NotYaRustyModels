@@ -43,7 +43,8 @@ pub struct CatalogItem {
 pub struct CatalogCategory {
     pub category_id: String,
     pub category_name: String,
-    pub parent_category_id: Option<String>
+    pub parent_category_id: Option<String>,
+    pub root_category_id: Option<String>
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
