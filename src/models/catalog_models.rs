@@ -32,7 +32,6 @@ impl Default for Catalog {
 pub struct CatalogItem {
     pub item_name: String,
     pub category_ids: Vec<String>,
-    pub root_category_id: String,
     pub price: i32,
     pub image_ids: Vec<String>,
     pub html_description: String,
