@@ -44,7 +44,8 @@ pub struct CatalogCategory {
     pub category_id: String,
     pub category_name: String,
     pub parent_category_id: Option<String>,
-    pub root_category_id: Option<String>
+    pub root_category_id: Option<String>,
+    pub ordinal: i32
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
