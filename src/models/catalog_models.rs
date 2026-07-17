@@ -85,6 +85,7 @@ impl CatalogItemModifier {
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
 pub struct CatalogItemTextModifier {
     pub text_modifier_id: String,
+    pub name: String,
     pub max_length: Option<i32>,
     pub required: bool
 }
@@ -92,6 +93,7 @@ pub struct CatalogItemTextModifier {
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
 pub struct CatalogItemModifierList {
     pub modifier_list_id: String,
+    pub name: String,
     pub modifier_value_ids: Vec<String>,
     pub min_selected_modifiers: i64,
     pub max_selected_modifiers: Option<i64>
