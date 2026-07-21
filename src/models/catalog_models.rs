@@ -8,8 +8,8 @@ pub struct Catalog {
     pub items: Vec<CatalogItem>,
     pub categories: Vec<CatalogCategory>,
     pub images: Vec<CatalogImage>,
-    pub option_lists: Vec<CatalogItemOptionList>,
-    pub option_values: Vec<CatalogItemOptionValue>,
+    // pub option_lists: Vec<CatalogItemOptionList>,
+    // pub option_values: Vec<CatalogItemOptionValue>,
     pub modifiers: Vec<CatalogItemModifier>,
     pub modifier_values: Vec<CatalogItemModifierValue>
 }
@@ -20,8 +20,8 @@ impl Default for Catalog {
             items: vec![],
             categories: vec![],
             images: vec![],
-            option_lists: vec![],
-            option_values: vec![],
+            // option_lists: vec![],
+            // option_values: vec![],
             modifiers: vec![],
             modifier_values: vec![]
         }
@@ -32,10 +32,10 @@ impl Default for Catalog {
 pub struct CatalogItem {
     pub item_name: String,
     pub category_ids: Vec<String>,
-    pub price: i32,
     pub image_ids: Vec<String>,
     pub html_description: String,
-    pub item_option_list_ids: Vec<String>,
+    pub item_variations: Vec<CatalogItemVariation>,
+    //pub item_option_list_ids: Vec<String>,
     pub item_modifier_ids: Vec<String>
 }
 
@@ -55,17 +55,25 @@ pub struct CatalogImage {
 }
 
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
-pub struct CatalogItemOptionList {
-    pub option_list_id: String,
-    pub option_name: String,
-    pub option_value_ids: Vec<String>
+pub struct CatalogItemVariation {
+    /// if this variation is selected, this variation ID will be used in place of the Item ID.
+    pub variation_id: String,
+    pub variation_name: String,
+    pub price: i32
 }
 
-#[derive(Serialize, Deserialize, PartialEq, Hash)]
-pub struct CatalogItemOptionValue {
-    pub option_value_id: String,
-    pub option_value_name: String
-}
+// #[derive(Serialize, Deserialize, PartialEq, Hash)]
+// pub struct CatalogItemOptionList {
+//     pub option_list_id: String,
+//     pub option_name: String,
+//     pub option_value_ids: Vec<String>
+// }
+
+// #[derive(Serialize, Deserialize, PartialEq, Hash)]
+// pub struct CatalogItemOptionValue {
+//     pub option_value_id: String,
+//     pub option_value_name: String
+// }
 
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
 pub enum CatalogItemModifier {
