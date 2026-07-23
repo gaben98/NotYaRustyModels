@@ -61,7 +61,7 @@ pub struct CatalogItemVariation {
     pub variation_id: String,
     pub variation_name: String,
     pub price: i32,
-    pub ordinal: i64
+    pub ordinal: i32
 }
 
 // #[derive(Serialize, Deserialize, PartialEq, Hash)]
