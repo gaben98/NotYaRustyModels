@@ -60,7 +60,8 @@ pub struct CatalogItemVariation {
     /// if this variation is selected, this variation ID will be used in place of the Item ID.
     pub variation_id: String,
     pub variation_name: String,
-    pub price: i32
+    pub price: i32,
+    pub ordinal: i64
 }
 
 // #[derive(Serialize, Deserialize, PartialEq, Hash)]
