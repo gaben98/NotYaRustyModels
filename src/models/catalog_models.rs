@@ -31,12 +31,12 @@ impl Default for Catalog {
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
 pub struct CatalogItem {
     pub item_name: String,
+    pub item_id: String,
     pub category_ids: Vec<String>,
     pub price: i32,
     pub image_ids: Vec<String>,
     pub html_description: String,
     pub item_variations: Vec<CatalogItemVariation>,
-    //pub item_option_list_ids: Vec<String>,
     pub item_modifier_ids: Vec<String>
 }
 
@@ -63,19 +63,6 @@ pub struct CatalogItemVariation {
     pub price: i32,
     pub ordinal: i32
 }
-
-// #[derive(Serialize, Deserialize, PartialEq, Hash)]
-// pub struct CatalogItemOptionList {
-//     pub option_list_id: String,
-//     pub option_name: String,
-//     pub option_value_ids: Vec<String>
-// }
-
-// #[derive(Serialize, Deserialize, PartialEq, Hash)]
-// pub struct CatalogItemOptionValue {
-//     pub option_value_id: String,
-//     pub option_value_name: String
-// }
 
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
 pub enum CatalogItemModifier {
