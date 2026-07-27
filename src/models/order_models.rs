@@ -5,7 +5,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, PartialEq, Hash)]
 pub struct Order {
-    pub items: Vec<LineItem>
+    pub items: Vec<LineItem>,
+    pub idempotency_key: String
 }
 
 #[derive(Serialize, Deserialize, Eq, PartialEq, Hash)]
