@@ -3,7 +3,7 @@ use std::vec::Vec;
 
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, PartialEq, Hash)]
+#[derive(Serialize, Deserialize, PartialEq, Hash, Clone)]
 pub struct Catalog {
     pub items: Vec<CatalogItem>,
     pub categories: Vec<CatalogCategory>,
@@ -28,7 +28,7 @@ impl Default for Catalog {
     }
 }
 
-#[derive(Serialize, Deserialize, PartialEq, Hash)]
+#[derive(Serialize, Deserialize, PartialEq, Hash, Clone)]
 pub struct CatalogItem {
     pub item_name: String,
     pub item_id: String,
@@ -49,13 +49,13 @@ pub struct CatalogCategory {
     pub ordinal: i64
 }
 
-#[derive(Serialize, Deserialize, PartialEq, Hash)]
+#[derive(Serialize, Deserialize, PartialEq, Hash, Clone)]
 pub struct CatalogImage {
     pub image_id: String,
     pub image_url: String
 }
 
-#[derive(Serialize, Deserialize, PartialEq, Hash)]
+#[derive(Serialize, Deserialize, PartialEq, Hash, Clone)]
 pub struct CatalogItemVariation {
     /// if this variation is selected, this variation ID will be used in place of the Item ID.
     pub variation_id: String,
@@ -64,7 +64,7 @@ pub struct CatalogItemVariation {
     pub ordinal: i32
 }
 
-#[derive(Serialize, Deserialize, PartialEq, Hash)]
+#[derive(Serialize, Deserialize, PartialEq, Hash, Clone)]
 pub enum CatalogItemModifier {
     List(CatalogItemModifierList),
     Text(CatalogItemTextModifier)
@@ -79,7 +79,7 @@ impl CatalogItemModifier {
     }
 }
 
-#[derive(Serialize, Deserialize, PartialEq, Hash)]
+#[derive(Serialize, Deserialize, PartialEq, Hash, Clone)]
 pub struct CatalogItemTextModifier {
     pub text_modifier_id: String,
     pub name: String,
@@ -87,7 +87,7 @@ pub struct CatalogItemTextModifier {
     pub required: bool
 }
 
-#[derive(Serialize, Deserialize, PartialEq, Hash)]
+#[derive(Serialize, Deserialize, PartialEq, Hash, Clone)]
 pub struct CatalogItemModifierList {
     pub modifier_list_id: String,
     pub name: String,
@@ -96,7 +96,7 @@ pub struct CatalogItemModifierList {
     pub max_selected_modifiers: Option<i64>
 }
 
-#[derive(Serialize, Deserialize, PartialEq, Hash)]
+#[derive(Serialize, Deserialize, PartialEq, Hash, Clone)]
 pub struct CatalogItemModifierValue {
     pub modifier_value_id: String,
     pub modifier_value_name: String,
